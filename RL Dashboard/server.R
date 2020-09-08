@@ -49,7 +49,7 @@ server<- shinyServer(function(input, output, session){
   
   output$table1 <- renderDataTable(
     datatable(data()$R,
-              colnames = c('Wait', 'Cut'), 
+              colnames = c('Wait', 'Share Resources'), 
               rownames = FALSE,
               extensions = 'Buttons',
               options = list(
