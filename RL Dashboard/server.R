@@ -116,7 +116,7 @@ server<- shinyServer(function(input, output, session){
       }
       else
       {
-        Action[i] <- "Cut"
+        Action[i] <- "Share Resources"
       }
     }
     Stage <- c(1,2,3)
