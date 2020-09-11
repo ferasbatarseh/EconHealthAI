@@ -13,7 +13,7 @@ server<- shinyServer(function(input, output, session){
   output$selected_var_1 <- renderText({ 
     paste0('Two actions can be performed - Wait/Idle or Share for resources, and there are three stages in this problem. <br>',
            '<B><br>',
-           "Stage 1: Equipments allocated for nurses and doctors <br>",
+           "Stage 1: Equipment allocated for nurses and doctors <br>",
            "Stage 2: Resources allocated for ER <br>",
            "Stage 3: Resources allocated for ICU <br>",
            '</B> <br>',
