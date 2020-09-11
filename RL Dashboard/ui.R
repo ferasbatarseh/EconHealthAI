@@ -2,11 +2,9 @@ header <- dashboardHeader(title = span("Dashboard", width = 550))
 
 sidebar <- dashboardSidebar(sidebarMenu(
   sidebarMenu(id = "sidebarmenu"),       
-  numericInput("prob", "Enter the value for pandemic severity", "0.1"),
-  numericInput("reward1", "Enter reward when the population is in the oldest state and
-               action Wait is performed", "4"),
-  numericInput("reward2", "Enter reward when the population is in the oldest state and action 
-               Share Resources is performed", "2")
+  numericInput("prob", "Enter the ratio for case hospitalization", "0"),
+  numericInput("reward1", "Enter the scaled measure of clinical severity", "4"),
+  numericInput("reward2", "Enter the scaled measure of transmissibility", "2")
 )
 )
 
@@ -19,8 +17,7 @@ body = dashboardBody(
                height = "100%",
                solidHeader = TRUE,
                collapsible  = TRUE,
-               htmlOutput("selected_var_1"),
-               htmlOutput("selected_var_2") 
+               htmlOutput("selected_var_1")
            )
     ),
     column(width = 6,
@@ -39,20 +36,7 @@ body = dashboardBody(
            )
     ),
     column(width = 6,
-           box(title = "Reward and Transition Matrix",
-               width = NULL,
-               status = "primary",
-               height = "100%",
-               solidHeader = TRUE,
-               collapsible  = TRUE,
-               htmlOutput("text4"),
-               DT::dataTableOutput("table1"),
-               htmlOutput("text5"),
-               DT::dataTableOutput("table2"),
-           )
-    ),
-    column(width = 6,
-           box(title = "Optimal Values and Policy",
+           box(title = "Resources and Policy",
                width = NULL,
                status = "primary",
                height = "100%",
@@ -63,7 +47,18 @@ body = dashboardBody(
                htmlOutput("text7"),
                DT::dataTableOutput("selected_var_tab_2")
            )
-    )
+    ),
+    column(width = 6,
+           box(title = "Recommendation",
+               width = NULL,
+               status = "primary",
+               height = "100%",
+               solidHeader = TRUE,
+               collapsible  = TRUE,
+               htmlOutput("selected_var_2") 
+           ),
+           img(src='Snapshot.png', align = "right", width =600, height = 320)
+    ),
   )
 )
 
